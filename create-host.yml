@@ -1,8 +1,6 @@
 ---
 - name: add host to AWS
   hosts: localhost
-  collections:
-    - name: amazon.aws
   tasks:
   - name: add host
     amazon.aws.ec2_instance:
