@@ -2,6 +2,7 @@
 - name: ping hosts
   hosts: all
   user: root
+  gather_facts: false
   tasks:
   - name: ping
     ping:
