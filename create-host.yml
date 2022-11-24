@@ -1,0 +1,6 @@
+---
+- name: create aws host
+  hosts: localhost
+  tasks:
+  - name: ping
+    ping:
