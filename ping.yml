@@ -3,6 +3,6 @@
   hosts: all
   user: root
   tasks:
-  - name: ping hosts
-    ping:
+  - name: ping google
+    shell: "ping -c 4 8.8.8.8"
     
