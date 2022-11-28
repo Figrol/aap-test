@@ -2,7 +2,7 @@
 - name: add host to AWS
   hosts: all
   collections:
-  - name: amazon.aws
+  - amazon.aws
   tasks:
   - name: add host
     ec2_instance:
