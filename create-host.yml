@@ -17,7 +17,9 @@
       count: "{{ number_of_instances }}"
       region: "{{ aws_region }}"
     register: host_info
+    when: inventory_hostname == play_hosts[0]
 
   - name: print hosts
     debug:
       var: host_info.instances[0].public_ip
+    when: inventory_hostname == play_hosts[0]
