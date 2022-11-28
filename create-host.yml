@@ -17,7 +17,6 @@
       access_key: "{{ access_key }}"
       secret_key: "{{ secret_key }}"
       state: present
-      count: "{{ number_of_instances }}"
       region: "{{ aws_region }}"
     register: host_info
     when: inventory_hostname == play_hosts[0]
