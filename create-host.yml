@@ -12,7 +12,7 @@
       instance_type: "{{ ec2_instance_type }}"
       security_group: "{{ security_group }}"
       network:
-        - assign_public_ip: "{{ assign_public_ip }}"
+        assign_public_ip: "{{ assign_public_ip }}"
       image_id: "{{ image_id }}"
       access_key: "{{ access_key }}"
       secret_key: "{{ secret_key }}"
