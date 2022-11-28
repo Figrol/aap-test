@@ -11,8 +11,8 @@
       security_group: "{{ security_group }}"
       assign_public_ip: "{{ assign_public_ip }}"
       image_id: "{{ image_id }}"
-      access_key: "{{ username }}"
-      secret_key: "{{ password }}"
+      access_key: "{{ access_key }}"
+      secret_key: "{{ secret_key }}"
       state: present
       count: "{{ number_of_instances }}"
       region: "{{ aws_region }}"
