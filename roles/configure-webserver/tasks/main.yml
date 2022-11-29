@@ -1,46 +1,37 @@
 ---
-- name: setup webserver with vhost
-  hosts: all
-  become: true
-  vars:
-    app_user: "apache"
-    http_host: "example.com"
-    http_conf: "example.com.conf"
-    http_port: "80"
-  tasks:
-    - name: httpd installed
-      ansible.builtin.yum:
-        name: httpd
-        state: latest
+- name: httpd installed
+  ansible.builtin.yum:
+    name: httpd
+    state: latest
 
-    - name: document root exist
-      ansible.builtin.file:
-        path: "/var/www/{{ http_host }}"
-        state: directory
-        owner: "{{ app_user }}"
-        mode: '0755'
-        setype: "httpd_sys_content_t"
+- name: document root exist
+  ansible.builtin.file:
+    path: "/var/www/{{ http_host }}"
+    state: directory
+    owner: "{{ app_user }}"
+    mode: '0755'
+    setype: "httpd_sys_content_t"
 
-    - name: custom index.html
-      ansible.builtin.copy:
-        dest: "/var/www/{{ http_host }}/index.html"
-        content: |
-                    Custom Web Page {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}
+- name: custom index.html
+  ansible.builtin.copy:
+    dest: "/var/www/{{ http_host }}/index.html"
+    content: |
+                Custom Web Page {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}
 
-    - name: setup Apache virtualhost
-      ansible.builtin.template:
-        src: "templates/httpd.conf.j2"
-        dest: "/etc/httpd/conf.d/{{ http_conf }}"
+- name: setup Apache virtualhost
+  ansible.builtin.template:
+    src: "templates/httpd.conf.j2"
+    dest: "/etc/httpd/conf.d/{{ http_conf }}"
 
-    - name: httpd service enabled
-      ansible.builtin.service:
-        name: httpd
-        enabled: true
-        state: restarted
+- name: httpd service enabled
+  ansible.builtin.service:
+    name: httpd
+    enabled: true
+    state: restarted
 
-    - name: open firewall
-      ansible.posix.firewalld:
-        service: http
-        state: enabled
-        immediate: true
-        permanent: true
+- name: open firewall
+  ansible.posix.firewalld:
+    service: http
+    state: enabled
+    immediate: true
+    permanent: true

@@ -1,4 +1,11 @@
 ---
 - name: configure web server
+  hosts: all
+  become: true
+  vars:
+    app_user: "apache"
+    http_host: "example.com"
+    http_conf: "example.com.conf"
+    http_port: "80"
   roles:
   - configure-webserver
