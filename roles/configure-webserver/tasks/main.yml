@@ -14,7 +14,7 @@
 
 - name: debug
   debug:
-    var: "{{ network_interfaces }}"
+    var: "{{ ansible_fact.network_interfaces }}"
 
 - name: custom index.html
   ansible.builtin.copy:
