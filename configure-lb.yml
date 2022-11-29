@@ -8,7 +8,7 @@
     elb_classic_lb:
       name: "webserver-load-balancer"
       state: present
-      zones: "eu-west-1c"
+#      zones: "eu-west-1c"
       listeners:
         - protocol: http
           load_balancer_port: 80
