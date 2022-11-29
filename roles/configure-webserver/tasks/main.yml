@@ -14,7 +14,7 @@
 
 - name: debug
   debug:
-    var: "{{ ansible_facts }}"
+    var: hostvars[inventory_hostname]
 
 - name: custom index.html
   ansible.builtin.copy:
