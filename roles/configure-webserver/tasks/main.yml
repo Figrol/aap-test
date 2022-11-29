@@ -14,7 +14,7 @@
 
 - name: debug
   debug:
-    var: ansible_all_ipv4_addresses
+    var: ansible_private_ip_addresses
 
 - name: custom index.html
   ansible.builtin.copy:
