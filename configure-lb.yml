@@ -19,3 +19,4 @@
       - i-0fb716aa77c3f66d8
       access_key: "{{ access_key }}"
       secret_key: "{{ secret_key }}"
+      subnets: subnet-0f5b0217f09a57332
