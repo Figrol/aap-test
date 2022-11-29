@@ -14,7 +14,7 @@
 
 - name: debug
   debug:
-    var: hostvars[inventory_hostname].public_ip_address
+    var: hostvars[inventory_hostname].private_ip_addresses
 
 - name: custom index.html
   ansible.builtin.copy:
