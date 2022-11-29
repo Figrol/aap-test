@@ -1,0 +1,19 @@
+---
+- name: configure AWS Load Balancer
+  hosts: all
+  collections:
+  - amazon.aws
+  tasks:
+  - name: configure load balancer
+    elb_classic_lb:
+      name: "webserver-load-balancer"
+      state: present
+      zones: "eu-west-1c"
+      listeners:
+        - protocol: http
+          load_balancer_port: 80
+          instance_port: 80
+    instance_ids:
+      - i-00f41b176377f1758
+      - i-08e5ed5ea695bc096
+      - i-0fb716aa77c3f66d8
