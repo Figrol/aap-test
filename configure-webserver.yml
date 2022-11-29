@@ -1,5 +1,4 @@
 ---
 - name: configure web server
-  hosts: all
   roles:
   - configure-webserver
