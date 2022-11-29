@@ -16,7 +16,7 @@
   ansible.builtin.copy:
     dest: "/var/www/{{ http_host }}/index.html"
     content: |
-                Custom Web Page {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}
+                Custom Web Page {{ network_interfaces.association.public_ip }}
 
 - name: setup Apache virtualhost
   ansible.builtin.template:
