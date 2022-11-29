@@ -20,3 +20,4 @@
       access_key: "{{ access_key }}"
       secret_key: "{{ secret_key }}"
       subnets: subnet-0f5b0217f09a57332
+      security_group_ids: sg-08d5cb774395e6618
