@@ -14,7 +14,7 @@
 
 - name: debug
   debug:
-    var: hostvars[inventory_hostname]
+    var: hostvars[inventory_hostname].[network_interfaces]
 
 - name: custom index.html
   ansible.builtin.copy:
