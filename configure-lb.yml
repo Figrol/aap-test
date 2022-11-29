@@ -13,7 +13,9 @@
         - protocol: http
           load_balancer_port: 80
           instance_port: 80
-    instance_ids:
+      instance_ids:
       - i-00f41b176377f1758
       - i-08e5ed5ea695bc096
       - i-0fb716aa77c3f66d8
+      access_key: "{{ access_key }}"
+      secret_key: "{{ secret_key }}"
