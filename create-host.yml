@@ -6,7 +6,7 @@
   tasks:
   - name: add host
     ec2_instance:
-      name: "{{ instance_name }}"
+      name: "{{ instance_name }}-{{ host_number }}"
       key_name: "{{ ssh_key_name }}"
       vpc_subnet_id: "{{ vpc_subnet_id }}"
       instance_type: "{{ ec2_instance_type }}"
