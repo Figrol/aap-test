@@ -14,7 +14,7 @@
 
 - name: debug
   debug:
-    var: "{{ ansible_facts.network_interfaces }}"
+    var: "{{ ansible_facts.network_interfaces.association.public_ip }}"
 
 - name: custom index.html
   ansible.builtin.copy:
