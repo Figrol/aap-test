@@ -12,6 +12,10 @@
     mode: '0755'
     setype: "httpd_sys_content_t"
 
+- name: debug
+  debug:
+    var: "{{ network_interfaces }}"
+
 - name: custom index.html
   ansible.builtin.copy:
     dest: "/var/www/{{ http_host }}/index.html"
