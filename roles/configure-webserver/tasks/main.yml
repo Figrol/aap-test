@@ -14,13 +14,13 @@
 
 - name: debug
   debug:
-    var: hostvars[inventory_hostname].private_ip_addresses
+    var: hostvars[inventory_hostname].public_ip_addresses
 
 - name: custom index.html
   ansible.builtin.copy:
     dest: "/var/www/{{ http_host }}/index.html"
     content: |
-                Custom Web Page {{ network_interfaces.public_ip }}
+                Custom Web Page {{ hostvars[inventory_hostname].public_ip_addresses }}
 
 - name: setup Apache virtualhost
   ansible.builtin.template:
