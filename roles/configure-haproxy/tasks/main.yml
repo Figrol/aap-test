@@ -7,7 +7,7 @@
 - name: update HAProxy config
   ansible.builtin.copy:
     src: "templates/haproxy.cfg.j2"
-    dest: "/etc/haproxy/haprocy.cfg"
+    dest: "/etc/haproxy/haproxy.cfg"
     
 - name: restart haproxy
   ansible.builtin.service:
