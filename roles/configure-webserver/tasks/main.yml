@@ -18,10 +18,9 @@
     verbosity: 3
 
 - name: custom index.html
-  ansible.builtin.copy:
+  ansible.builtin.template:
+    src: "templates/index.html.j2"
     dest: "/var/www/{{ http_host }}/index.html"
-    content: |
-                Custom Web Page {{ hostvars[inventory_hostname].public_ip_address }}
 
 - name: setup Apache virtualhost
   ansible.builtin.template:
