@@ -16,6 +16,11 @@
   debug:
     var: hostvars[inventory_hostname].public_ip_address
     verbosity: 3
+    
+- name: copy pictures
+  ansible.builtin.template:
+    src: "files/dogs.jpg"
+    dest: "/var/www/{{ http_host }}/dogs.jpg"
 
 - name: custom index.html
   ansible.builtin.template:
