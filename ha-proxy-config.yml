@@ -1,6 +1,6 @@
 ---
 - name: configure HA-Proxy
-  hosts: loadbalancers
+  hosts: all
   become: yes
   roles:
   - configure-haproxy
