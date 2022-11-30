@@ -5,7 +5,7 @@
     state: latest
 
 - name: update HAProxy config
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: "templates/haproxy.cfg.j2"
     dest: "/etc/haproxy/haproxy.cfg"
     
