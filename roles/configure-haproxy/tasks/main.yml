@@ -3,3 +3,14 @@
   ansible.builtin.yum:
     name: haproxy
     state: latest
+
+- name: update HAProxy config
+  ansible.builtin.copy:
+    src: "templates/haproxy.cfg.j2"
+    dest: "/etc/haproxy/haprocy.cfg"
+    
+- name: restart haproxy
+  ansible.builtin.service:
+    name: haproxy
+    enabled: true
+    state: restarted
