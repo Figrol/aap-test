@@ -90,4 +90,4 @@ backend app
     balance     roundrobin
 {% for i in groups['webservers'] %}
     server server{{ loop.index0 }} {{ hostvars[i].public_ip_address }}:80 check
-{% endfor %}"
+{% endfor %}
