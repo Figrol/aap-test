@@ -64,27 +64,30 @@ defaults
 #---------------------------------------------------------------------
 # main frontend which proxys to the backends
 #---------------------------------------------------------------------
-frontend main
-    bind *:5000
-    acl url_static       path_beg       -i /static /images /javascript /stylesheets
-    acl url_static       path_end       -i .jpg .gif .png .css .js
+frontend http_balancer
+    bind *:80
+    option http-server-close
+    option forwardfor
+    stats uri /haproxy?stats
+ #   acl url_static       path_beg       -i /static /images /javascript /stylesheets
+ #   acl url_static       path_end       -i .jpg .gif .png .css .js
 
-    use_backend static          if url_static
+ #   use_backend static          if url_static
     default_backend             app
 
 #---------------------------------------------------------------------
 # static backend for serving up images, stylesheets and such
 #---------------------------------------------------------------------
-backend static
-    balance     roundrobin
-    server      static 127.0.0.1:4331 check
+#backend static
+#    balance     roundrobin
+#    server      static 127.0.0.1:4331 check
 
 #---------------------------------------------------------------------
 # round robin balancing between the various backends
 #---------------------------------------------------------------------
 backend app
+    mode http
     balance     roundrobin
-    server  app1 127.0.0.1:5001 check
-    server  app2 127.0.0.1:5002 check
-    server  app3 127.0.0.1:5003 check
-    server  app4 127.0.0.1:5004 check
+    server  server1 63.32.46.63:80 check
+    server  server2 52.208.16.6:80 check
+    server  server3 34.250.192.198:80 check
