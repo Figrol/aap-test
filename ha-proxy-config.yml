@@ -3,4 +3,4 @@
   hosts: loadbalancers
   become: yes
   roles:
-  - configure-webserver
+  - configure-haproxy
