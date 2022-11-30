@@ -89,5 +89,5 @@ backend app
     mode http
     balance     roundrobin
 {% for i in groups['webservers'] %}
-    server{{ loop.index0 }}{{ hostvars[i].inventory_hostname }}:80 check
+    server {{ loop.index0 }}{{ hostvars[i].inventory_hostname }} {{ loop.index0 }}{{ hostvars[i].ansible_default_ipv4.address }}:80 check
 {% endfor %}"
