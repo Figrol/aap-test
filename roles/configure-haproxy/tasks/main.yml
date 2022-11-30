@@ -3,14 +3,17 @@
   ansible.builtin.yum:
     name: haproxy
     state: latest
+  when: ( "loadbalancers" in group_names )
 
 - name: update HAProxy config
   ansible.builtin.template:
     src: "templates/haproxy.cfg.j2"
     dest: "/etc/haproxy/haproxy.cfg"
+  when: ( "loadbalancers" in group_names )
     
 - name: restart haproxy
   ansible.builtin.service:
     name: haproxy
     enabled: true
     state: restarted
+  when: ( "loadbalancers" in group_names )
