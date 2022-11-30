@@ -88,6 +88,6 @@ frontend main
 backend app
     mode http
     balance     roundrobin
-    server  server1 63.32.46.63:80 check
-    server  server2 52.208.16.6:80 check
-    server  server3 34.250.192.198:80 check
+{% for i in groups['webservers'] %}
+    server{{ loop.index0 }}{{ hostvars[i].inventory_hostname }}:80 check
+{% endfor %}"
