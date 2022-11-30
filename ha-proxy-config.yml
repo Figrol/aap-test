@@ -1,0 +1,11 @@
+---
+- name: configure HA-Proxy
+  hosts: loadbalancers
+  become: yes
+  tasks:
+  - name: install haproxy
+    yum:
+      name: haproxy
+      state: latest
+      
+  - name: 
